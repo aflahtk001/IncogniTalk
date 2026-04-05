@@ -1,0 +1,56 @@
+<%- include("partials/header.ejs") %>
+
+<nav class="navbar">
+    <div class="nav-name container">
+        <span class="navbar-brand">IncogniTalk</span>
+        <a href="https://aflahtk001.github.io/portfolio/" class="dev-link" target="_blank">Connect Dev</a>
+    </div>
+    
+</nav>
+<hr>
+<div class="container-fluid py-4">
+    <div class="masonry" id="blogContainer">
+    <%  for (let i = 0 ; i< posts.length ; i++){ %>
+    <div class="card p-3">
+    <div class="meta-small mb-1"><%= posts[i].tittle %></div>
+    <p class="mb-2">
+        <%= posts[i].message %>
+    </p>
+    <div class="meta-small"><%= posts[i].category %></div>
+    <div class="meta-small">
+        <%= posts[i].name %> • <%= posts[i].date %>
+    </div>
+    </div>
+    <%  } %>
+    </div>
+</div>
+
+<!-- add post button -->
+<button class="btn btn-dark add-btn" data-bs-toggle="modal" data-bs-target="#postModal">+</button>
+
+<form action="/submit" method="post" class="modal fade" id="postModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Log an Incident</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <input name="category" type="text" id="newCategory" class="form-control mb-2" placeholder="category" required>
+        <input name="tittle" type="text" id="type" class="form-control mb-2" placeholder="Tittle" required>
+        <input name="name" type="text" id="name" class="form-control mb-2" placeholder="Your Name (optional)">
+        <textarea name="message" id="message" class="form-control mb-2" placeholder="Message" required></textarea>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-dark w-100" type="submit">Post</button>
+      </div>
+
+    </div>
+  </div>
+</form>
+
+<%- include("partials/footer.ejs") %>
