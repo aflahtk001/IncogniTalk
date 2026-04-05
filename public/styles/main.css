@@ -123,3 +123,46 @@ body {
     transform: scale(1.1) rotate(8deg);
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
+.footer {
+    background: #0b0b0b;
+    border-top: 1px solid #1f1f1f;
+}
+
+.footer-brand {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.footer-copy {
+    color: #777;
+    font-size: 13px;
+}
+
+.dev-credit {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.dev-credit::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 1px;
+    background: #0d6efd;
+    transition: width 0.25s ease;
+}
+
+.dev-credit:hover {
+    color: #fff;
+}
+
+.dev-credit:hover::after {
+    width: 100%;
+}
